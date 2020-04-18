@@ -7,4 +7,4 @@ Finally, note that the saddle path is plotted by solving the ODE backward from t
 
 **Functions appear at the end of the code**
 
-RCK-Phase-Diagram.pdf
+![RCK-Phase-Diagram](https://user-images.githubusercontent.com/45733935/79632176-ed377e00-815d-11ea-9aa8-e952cf26bd6c.png)
