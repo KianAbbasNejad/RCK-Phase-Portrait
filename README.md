@@ -1,4 +1,4 @@
-# RCK-Phase-Diagram
+# RCK Phase Portrait
 This simple code plots the stationary loci, saddle path and vector field in (capital, consumption) space for a simple Ramsey-Cass-Koopmans model. The code uses user-input parameter values (or the user can choose default parameters). 
 
 The vector field is made more aesthetically pleasing by resizing the vectors by their norm. If the user wants, this feature can be easily removed from the code.
