@@ -51,7 +51,7 @@ grid on
 xlabel('$k$','FontSize',16,'interpreter','latex');
 ylabel('$c$','FontSize',16,'interpreter','latex');
 axis(reshape(boundaryval',1,4));
-title('RBC Phase Diagram');
+title('RBC Phase Diagram','interpreter','latex');
 xline(kss(paramvals), 'LineWidth',2');
 yline(css(kss(paramvals),paramvals),'--','LineWidth',1.2);
 plot(k,css(k,paramvals),'LineWidth',2);
