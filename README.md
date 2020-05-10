@@ -3,7 +3,7 @@ This script plots the stationary loci, saddle path and vector field in (capital,
 
 The vector field is made more aesthetically pleasing by resizing the vectors by their norm. If the user wants, this feature can be easily removed from the script.
 
-Finally, note that the saddle path is plotted by solving the ODE backward from the (known) steady state. Therefore it is not precise and is mostly aimed for graphical analysis. 
+Finally, note that the saddle path (stable manifold) is plotted by creating a polygon around the steady state and solving it backward. 
 
 **Functions appear at the end of the code**
 
