@@ -1,5 +1,5 @@
-# RCK Phase Portrait
-This script plots the stationary loci, saddle path and vector field in (capital, consumption) space for a simple Ramsey-Cass-Koopmans model. It uses user-input parameter values (or the user can choose default parameters). 
+# Ramsey Cass Koopmans Phase Portrait
+This script plots the stationary loci, saddle path and vector field in (capital, consumption) space for a simple RCK model. It uses user-input parameter values (or the user can choose default parameters). 
 
 The vector field is made more aesthetically pleasing by resizing the vectors by their norm. If the user wants, this feature can be easily removed from the script.
 
