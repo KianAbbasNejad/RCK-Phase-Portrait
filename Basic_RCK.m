@@ -57,6 +57,7 @@ yline(css(kss(paramvals),paramvals),'--','LineWidth',1.2);
 plot(k,css(k,paramvals),'LineWidth',2);
 
 %% Saddle Path 
+
 % Since the generic RCK equilibrium is known to have a unique stable
 % manifold (also obvious from the vector field), I use the backward ODE to
 % plot the stable manifold instead of other methods such as a shooting algorithm.
@@ -65,14 +66,16 @@ dx=paramvals(end-1);
 % Defining the ODE as an anonymous function
 dxdt = @(t,x) [F(x(1),paramvals)-paramvals(4).*x(1)-x(2) ; ...
     (x(2)./paramvals(3)).*(paramvals(1).*paramvals(2).*x(1).^(paramvals(2)-1)-paramvals(5)-paramvals(4))];
-% First starting point in the lower left region of the equilibrium
-x0=[kss(paramvals)-dx,css(kss(paramvals),paramvals)-dx];
-[~,x]=ode45(dxdt, [0, -N],x0); 
-plot(x(:,1),x(:,2),'r--','LineWidth',1.5) ;
-% Second starting point in the upper right region of the equilibrium
-x0=[kss(paramvals)+dx,css(kss(paramvals),paramvals)+dx];
-[~,x]=ode45(dxdt, [0, -N],x0); 
-plot(x(:,1),x(:,2),'r--','LineWidth',1.5) ;
+
+% creating a polygon/circle object with radius dx
+% to be iterated through the manifold
+cir = circle(kss(paramvals),css(kss(paramvals),paramvals),dx); 
+plot(cir(1,:),cir(2,:),'r--')
+
+for i=1:length(cir)
+    [~,x]=ode45(dxdt, [0, -N],cir(:,i)); 
+    plot(x(:,1),x(:,2),'r--','LineWidth',1.5) ;
+end
 
 %% Vector Field
 [K,C]=meshgrid(linspace(0.2,boundaryval(1,2),20),linspace(0,boundaryval(2,2),20));
@@ -135,5 +138,10 @@ for i=1:n
 end
 end
 
-
+function cir = circle(x,y,r)
+% CIRCLE gives the points of a polygon at (x,y) with radiur r
+% used for iterating through the stable manifold
+th = 0:pi/25:2*pi;
+cir = [r * cos(th) + x;r * sin(th) + y];
+end
 
